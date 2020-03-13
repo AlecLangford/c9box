@@ -10,7 +10,8 @@ RUN curl -O https://www.python.org/ftp/python/3.8.2/Python-3.8.2.tar.xz \
 && cd Python-3.8.2 \
 && ./configure \
 && make \
-&& make altinstall
+&& make altinstall \
+&& python3.8 -m pip install flexget
 
 RUN scripts/install-sdk.sh
 RUN sed -i -e 's_127.0.0.1_0.0.0.0_g' /cloud9/configs/standalone.js
